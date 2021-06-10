@@ -1,8 +1,12 @@
-# Alfred History Search
-
+<h1 align="center">
+  
 <a href="https://github.com/mr-pennyworth/alfred-history-search/releases/latest/">
-  <img alt="Download Latest Release" src="https://img.shields.io/github/downloads/mr-pennyworth/alfred-history-search/total">
-</a><br/><br/>
+  <img src="icon.png" width="16%"><br/>
+  <img alt="Download"
+       src="https://img.shields.io/github/downloads/mr-pennyworth/alfred-history-search/total?color=purple&label=Download"><br/>
+</a>
+  Alfred History Search
+</h1>
 
 An [Alfred](https://alfredapp.com) workflow to search through query history,
 and execute queries from history.
