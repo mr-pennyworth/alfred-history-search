@@ -108,7 +108,7 @@
 				<key>escaping</key>
 				<integer>102</integer>
 				<key>keyword</key>
-				<string>.clear-afred-query-history</string>
+				<string>.clear-alfred-query-history</string>
 				<key>queuedelaycustom</key>
 				<integer>3</integer>
 				<key>queuedelayimmediatelyinitially</key>
@@ -128,7 +128,7 @@ touch "$alfred_workflow_data/query-history.txt"
 				<key>scriptfile</key>
 				<string></string>
 				<key>subtext</key>
-				<string>.clear-afred-query-history</string>
+				<string>.clear-alfred-query-history</string>
 				<key>title</key>
 				<string>Clear Alfred Query History</string>
 				<key>type</key>
@@ -214,7 +214,7 @@ Download the [latest release][1]
    ![](images/screenshot-3.png)
 
 #### Deleting Query History
-Type `.clear-afred-query-history` in Alfred.
+Type `.clear-alfred-query-history` in Alfred.
 
 
 ## Icon Credits
