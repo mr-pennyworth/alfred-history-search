@@ -24,7 +24,7 @@ Download the [latest release][1]
    ![](images/screenshot-3.png)
 
 #### Deleting Query History
-Type `.clear-afred-query-history` in Alfred.
+Type `.clear-alfred-query-history` in Alfred.
 
 
 ## Icon Credits
