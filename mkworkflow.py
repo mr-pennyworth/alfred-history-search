@@ -13,7 +13,7 @@ from uuid import uuid4
 START_LETTERS = (
   'abcdefghijklmnopqrstuvwxyz'
   '0123456789'
-  "._'"
+  "._'`,"
 )
 
 SCRIPT_DIR = sys.path[0]
