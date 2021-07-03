@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 
 import json
+import logging
 import os
 import re
 import sys
@@ -45,9 +46,13 @@ def lines(filepath):
 def get_timestamps_and_queries():
   trie = Trie()
   regex = r'(\d+) (.*)'
-  for line in lines(HIST_PATH):
-    timestamp, query = re.findall(regex, line)[0]
-    trie.insert(query, (int(timestamp), query))
+  for linum, line in enumerate(lines(HIST_PATH)):
+    try:
+      timestamp, query = re.findall(regex, line)[0]
+      trie.insert(query, (int(timestamp), query))
+    except Exception as e:
+      logging.error("%d: %s (len: %d)\n" % (linum, line, len(line)))
+      logging.exception(e)
   return sorted(trie.leaves(), reverse=True)
   
 
