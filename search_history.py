@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*-
+#!/usr/bin/env python3
 
 import json
 import logging
@@ -14,7 +14,7 @@ WF_DATA_DIR = os.environ['alfred_workflow_data']
 HIST_PATH = os.path.join(WF_DATA_DIR, 'query-history.txt')
 
 
-class Trie(object):
+class Trie:
   def __init__(self, root_data=None):
     self.root_data = root_data
     self.children = defaultdict(Trie)
@@ -25,21 +25,23 @@ class Trie(object):
     else:
       self.children[key[key_idx]].insert(key, data, key_idx + 1)
 
-  def _collect_leaves(self, accumulator=[]):
+  def _collect_leaves(self, accumulator=None):
+    if accumulator is None:
+      accumulator = []
     if len(self.children) == 0 and self.root_data is not None:
       accumulator.append(self.root_data)
     else:
       for _, child in self.children.items():
         child._collect_leaves(accumulator)
 
+    return accumulator
+
   def leaves(self):
-    l = []
-    self._collect_leaves(l)
-    return l
+    return self._collect_leaves()
 
 
 def lines(filepath):
-  with open(filepath) as f:
+  with open(filepath, 'r') as f:
     return f.readlines()
 
 
@@ -51,15 +53,15 @@ def get_timestamps_and_queries():
       timestamp, query = re.findall(regex, line)[0]
       trie.insert(query, (int(timestamp), query))
     except Exception as e:
-      logging.error("%d: %s (len: %d)\n" % (linum, line, len(line)))
+      logging.error(f"{linum}: {line} (len: {len(line)})\n")
       logging.exception(e)
   return sorted(trie.leaves(), reverse=True)
   
 
 def write_consolidated_query_log(timestamps_and_queries):
-  hist = ''.join([
-    '%d %s\n' % ts_n_q
-    for ts_n_q in timestamps_and_queries
+  hist = '\n'.join([
+    f"{ts} {q}"
+    for ts, q in timestamps_and_queries
   ])
   with open(HIST_PATH, 'w') as histfile:
     histfile.write(hist)

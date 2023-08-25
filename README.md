@@ -12,9 +12,13 @@ An [Alfred](https://alfredapp.com) workflow to search through query history,
 and execute queries from history.
 
 ## Usage
+
 Download the [latest release][1]
 
+- Requires `python3` on the system
+
 #### Searching Through Query History
+
  - Assign hotkey trigger (`⌃R` recommended)
  - While using Alfred, press the hotkey. Alfred's query history will show up:
    ![](images/screenshot.png)
@@ -24,10 +28,12 @@ Download the [latest release][1]
    ![](images/screenshot-3.png)
 
 #### Deleting Query History
+
 Type `.clear-alfred-query-history` in Alfred.
 
 
 ## Icon Credits
+
 Icon created by combining icons form [flaticon](https://www.flaticon.com)
 made by [Freepik](https://www.flaticon.com/authors/freepik)
 and [Pixel Perfect](https://www.flaticon.com/authors/pixel-perfect)
