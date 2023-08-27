@@ -6,12 +6,15 @@ import os
 import re
 import sys
 
+from pathlib import Path
 from collections import defaultdict
 from datetime import datetime
 
 
-WF_DATA_DIR = os.environ['alfred_workflow_data']
-HIST_PATH = os.path.join(WF_DATA_DIR, 'query-history.txt')
+WF_DATA_DIR = Path(os.environ['alfred_workflow_data'])
+WF_DATA_DIR.mkdir(parents=True, exist_ok=True)
+HIST_PATH = Path(WF_DATA_DIR) / 'query-history.txt'
+HIST_PATH.touch()
 
 
 class Trie:
